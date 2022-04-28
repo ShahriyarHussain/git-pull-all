@@ -4,7 +4,7 @@ PROJECT_DIR=$1
 echo "Project Directory:"
 
 if [ $# -eq 0 ]; then
-	PROJECT_DIR=~/Desktop/Projects
+	PROJECT_DIR=.
 	echo "No directory provided, default directory:"
 fi
 
