@@ -1,24 +1,18 @@
 #!/usr/bin/env bash
 
 PROJECT_DIR=$1
-
 echo "Project Directory:"
 
 if [ $# -eq 0 ]; then
 	PROJECT_DIR=~/Desktop/Projects
 	echo "No directory provided, default directory:"
-	echo "$PROJECT_DIR"
-else
-	echo "$PROJECT_DIR"
 fi
 
 cd "$PROJECT_DIR"
 pwd
-
-sleep 1
-
 REPOS=0
 SUCCESS=0
+sleep 1
 
 for d in */ ; do
 	FILE="$d/.git"
@@ -39,8 +33,9 @@ done
 
 echo ""
 
-if [ REPOS == 0 ]; then
+if [ "$REPOS" -eq 0 ]; then
 	echo "No git repository exists in the directory"
+	exit 0
 else
 	echo "Total Repositories: $REPOS"
 	echo "Possible pulls: $SUCCESS"
